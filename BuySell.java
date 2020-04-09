@@ -21,16 +21,11 @@ Output: 0
 
 class BuySell{
     public static int maxProfits(int[] prices) {
-        if(prices.length==0) return 0;
-
         int profit = 0;
-        int prev_buy = -1*prices[0];
-        for (int i=0; i<prices.length; i++) {
-            //are we better off using our previous buy, or buying now, to increase our profits?
-            int buy = Math.max(prev_buy, profit - prices[i]);
-            //are we better off keeping what we have, or selling?
-            profit = Math.max(profit, prev_buy + prices[i]);
-            prev_buy = buy;
+        for (int i=0; i<prices.length-1; i++) {
+            if(prices[i+1]>prices[i]){
+                profit += prices[i+1]-prices[i];
+            }
         }
         return profit;
     }
