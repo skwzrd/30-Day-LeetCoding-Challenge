@@ -20,26 +20,24 @@ import java.util.HashMap;
 
 class GroupAnagrams{
     public static List<List<String>> anagrams(String[] strs) {
-        List<List<String>> answer = new ArrayList<>();
-        
-        int index = 0;
-        Map<String, Integer> d = new HashMap();
-        
+
+        Map<String, List<String>> d = new HashMap();
+
         for (int i = 0; i < strs.length; i++) {
             char[] c = strs[i].toCharArray();
             Arrays.sort(c);
             String sorted_word = Arrays.toString(c);
-
+            
             if(!d.containsKey(sorted_word)){
                 List<String> word_holder = new ArrayList<>();
-                word_holder.add(strs[i]);
-                answer.add(word_holder);
-                d.put(sorted_word, index++);
+                d.put(sorted_word, word_holder);
             }
-            else{
-                int sublist_index = d.get(sorted_word);
-                answer.get(sublist_index).add(strs[i]);
-            }
+            d.get(sorted_word).add(strs[i]);
+        }
+
+        List<List<String>> answer = new ArrayList<>();
+        for (List<String> list : d.values()) {
+            answer.add(list);
         }
         return answer;
     }
