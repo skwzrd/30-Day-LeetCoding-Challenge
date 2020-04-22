@@ -21,7 +21,7 @@ import java.util.HashMap;
 class GroupAnagrams{
     public static List<List<String>> anagrams(String[] strs) {
 
-        Map<String, List<String>> d = new HashMap();
+        Map<String, List<String>> d = new HashMap<>();
 
         for (int i = 0; i < strs.length; i++) {
             char[] c = strs[i].toCharArray();

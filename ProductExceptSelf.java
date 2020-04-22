@@ -15,24 +15,18 @@ import java.util.Arrays;
 
 class ProductExceptSelf {
     public static int[] productExceptSelf(int[] nums) {
-
         int[] products = new int[nums.length];
-
-        int left_products = 1;
-        for (int i = 0; i < nums.length; i++) {
-            // make an array, products, like
-            // {1, 1*nums[0], 1*nums[0]*nums[1], ..., 1*nums[0]*nums[1]*nums[2]*...*nums[nums.length-1]}
-            products[i] = left_products;
-            left_products = left_products * nums[i];
+        int temp = 1;
+        for (int i = 0; i < products.length; i++) {
+            products[i] = temp;
+            temp = temp * nums[i];
         }
         
-        // now roll back from right to left doing a similar thing as before
-        int right_products = 1;
-        for (int i = nums.length - 1; i >= 0; i--) {
-            products[i] = products[i] * right_products;
-            right_products = right_products * nums[i];
+        temp = 1;
+        for(int i = products.length - 1; i >= 0; i--){
+            products[i] = temp * products[i];
+            temp = temp * nums[i];
         }
-
         return products;
     }
 

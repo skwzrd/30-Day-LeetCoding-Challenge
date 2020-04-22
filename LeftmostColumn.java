@@ -14,8 +14,8 @@ If such index doesn't exist, return -1.
 import java.util.List;
 
 // interface BinaryMatrix {
-//     public int get(int x, int y) {}
-//     public List<Integer> dimensions {}
+//     public int get(int x, int y) {};
+//     public List<Integer> dimensions {};
 // };
 
 class LeftmostColumn{

@@ -11,9 +11,6 @@ Output: 6
 Explanation: [4,-1,2,1] has the largest sum = 6.
 */
 
-import java.util.HashSet;
-import java.util.Set;
-
 class MaximumSubarray{
     public static int maxSubArray(int[] nums) {
         int sum = 0;

@@ -20,7 +20,6 @@ Explanation: Because the path 1→3→1→1→1 minimizes the sum.
 */
     
 import java.lang.Math;
-import java.util.Arrays;
 
 class MinPathSum{
 
